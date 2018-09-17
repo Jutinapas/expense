@@ -49,13 +49,17 @@ public class ExpenseIncomeAccountController {
 
     }
 
-    public void initialize() {
+    public void initialize() throws Exception {
         account = new ExpenseIncomeAccount(0);
         records = FXCollections.observableArrayList();
+        for (Transaction transaction: account.getTransactions()) {
+            records.add(new Record(transaction));
+        }
         dateColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("date"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("type"));
         descColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("description"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("amount"));
+        tableView.setItems(records);
         setBalanceLabel();
     }
 
@@ -72,21 +76,19 @@ public class ExpenseIncomeAccountController {
     }
 
     @FXML
-    public void handleIncomeButton() {
+    public void handleIncomeButton() throws Exception {
         if (!descField.getText().trim().equals("") && !amountField.getText().trim().equals("")) {
-            Transaction transaction = new Transaction(descField.getText(), Integer.parseInt(amountField.getText()), Transaction.Type.INCOME);
-            account.addIncome(transaction);
-            updateTable(transaction);
+            account.addIncome(descField.getText(), Integer.parseInt(amountField.getText()));
+            updateTable(account.getTransactions().get(account.getTransactionsSize() - 1));
             clearTextField();
         }
     }
 
     @FXML
-    public void handleExpenseButton() {
+    public void handleExpenseButton() throws Exception {
         if (!descField.getText().trim().equals("") && !amountField.getText().trim().equals("")) {
-            Transaction transaction = new Transaction(descField.getText(), Integer.parseInt(amountField.getText()), Transaction.Type.EXPENSE);
-            account.addExpense(transaction);
-            updateTable(transaction);
+            account.addExpense(descField.getText(), Integer.parseInt(amountField.getText()));
+            updateTable(account.getTransactions().get(account.getTransactionsSize() - 1));
             clearTextField();
         }
     }

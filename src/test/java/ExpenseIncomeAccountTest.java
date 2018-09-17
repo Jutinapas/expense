@@ -9,17 +9,17 @@ class ExpenseIncomeAccountTest {
     private int initialBalance = 2000;
 
     @BeforeEach
-    void init() { account = new ExpenseIncomeAccount(initialBalance); }
+    void init() throws Exception { account = new ExpenseIncomeAccount(initialBalance); }
 
     @Test
-    void testAddIncome() {
-        account.addIncome(new Transaction("testAddIncome", 150, Transaction.Type.INCOME));
+    void testAddIncome() throws Exception {
+        account.addIncome("testAddIncome", 150);
         assertEquals(2150, account.getBalance());
     }
 
     @Test
-    void testAddExpense() {
-        account.addExpense(new Transaction("testAddExpense", 150, Transaction.Type.EXPENSE));
+    void testAddExpense() throws Exception {
+        account.addExpense("testAddExpense", 150);
         assertEquals(1850, account.getBalance());
     }
 

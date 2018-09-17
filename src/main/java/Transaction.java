@@ -4,16 +4,14 @@ public class Transaction {
 
     enum Type { EXPENSE, INCOME };
 
+    private int id;
+    private LocalDateTime date;
+    private Type type;
     private String description;
     private int amount;
-    private Type type;
-    private LocalDateTime date;
 
-    public Transaction(String description, int amount, Type type) {
-        this.description = description;
-        this.amount = amount;
-        this.type = type;
-        this.date = LocalDateTime.now();
+    public Transaction(int id, LocalDateTime date, Type type, String description, int amount) {
+        this.id = id; this.date = date; this.type = type; this.description = description; this.amount = amount;
     }
 
     public String getDescription() {

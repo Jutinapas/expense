@@ -6,46 +6,21 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ad7ab43-44ad-4ae0-bc8f-77d758a397f9" name="Default Changelist" comment="repeat and repeat push">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/lab04_expense_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/lab04_expense_jar/lab04-expense.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/expenseIncomeAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/features/addExpense.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/features/addIncome.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/StepOfAccounting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/UATAddExpense.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/UATAddIncome.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccount.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController$Record.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Transaction$Type.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/Transaction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/expenseIncomeAccount.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/features/addExpense.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/features/addIncome.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cucumber/formatter.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cucumber/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cucumber/jquery-1.8.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cucumber/report.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/cucumber/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/ExpenseIncomeAccountTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/StepOfAccounting.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/UATAddExpense.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/test-classes/UATAddIncome.class" afterDir="false" />
+    <list default="true" id="0ad7ab43-44ad-4ae0-bc8f-77d758a397f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/expense-income.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/StepOfAccounting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/StepOfAccounting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccount.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController$Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController$Record.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ExpenseIncomeAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Transaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ExpenseIncomeAccountTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ExpenseIncomeAccountTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/StepOfAccounting.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/StepOfAccounting.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -92,10 +67,14 @@
     <session id="-1228848476">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.0" value="2" />
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.0" value="4" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.6" value="1" />
+          <entry key="project.opened" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -106,17 +85,18 @@
           <entry key="fxml" value="1" />
           <entry key="gitignore" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="18" />
-          <entry key="xml" value="1" />
+          <entry key="java" value="25" />
+          <entry key="md" value="1" />
+          <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="18" />
+          <entry key="JAVA" value="25" />
           <entry key="Manifest" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="XML" value="2" />
+          <entry key="PLAIN_TEXT" value="4" />
+          <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -124,16 +104,16 @@
           <entry key="dummy" value="20" />
           <entry key="feature" value="2" />
           <entry key="features" value="497" />
-          <entry key="java" value="3078" />
+          <entry key="java" value="5622" />
           <entry key="txt" value="23" />
-          <entry key="xml" value="1" />
+          <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3078" />
+          <entry key="JAVA" value="5622" />
           <entry key="PLAIN_TEXT" value="542" />
-          <entry key="XML" value="1" />
+          <entry key="XML" value="5" />
         </counts>
       </usages-collector>
     </session>
@@ -143,8 +123,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
+            <state relative-caret-position="1360">
+              <caret line="90" column="88" selection-start-line="90" selection-start-column="88" selection-end-line="90" selection-end-column="88" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/StepOfAccounting.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -155,50 +159,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
+            <state relative-caret-position="1343">
+              <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="38" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/StepOfAccounting.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="270">
+              <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/UATAddExpense.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/UATAddIncome.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="9" selection-start-line="9" selection-end-line="9" />
@@ -212,8 +192,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/features/addExpense.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+            <state relative-caret-position="68">
+              <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -221,8 +201,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/features/addIncome.feature">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="57" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="57" />
+            <state relative-caret-position="153">
+              <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -230,12 +219,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-              <folding>
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#605#606#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="31" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -266,29 +251,29 @@
         <option value="$PROJECT_DIR$/src/main/resources/sample.fxml" />
         <option value="$PROJECT_DIR$/src/test/java/ControllerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ExpenseController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/Record.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Transaction.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/features/income.features" />
         <option value="$PROJECT_DIR$/src/main/java/NotEnoughMoney.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java" />
         <option value="$PROJECT_DIR$/src/main/resources/features/addExpense.features" />
         <option value="$PROJECT_DIR$/src/main/resources/features/addIncome.features" />
         <option value="$PROJECT_DIR$/src/test/java/UATAddIncome.java" />
         <option value="$PROJECT_DIR$/src/test/java/UATAddExpense.java" />
-        <option value="$PROJECT_DIR$/src/test/java/StepOfAccounting.java" />
         <option value="$PROJECT_DIR$/src/main/resources/features/addExpense.feature" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Transaction.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/StepOfAccounting.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="127" />
-    <option name="y" value="488" />
-    <option name="width" value="978" />
+    <option name="x" value="825" />
+    <option name="y" value="90" />
+    <option name="width" value="980" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -297,7 +282,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -382,11 +366,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536240946937" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537203402426" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -397,6 +382,9 @@
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jutin\IdeaProjects\lab04-expense" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -418,7 +406,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.UATAddExpense">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="lab04-expense" />
@@ -458,10 +446,10 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UATAddExpense" />
         <item itemvalue="JUnit.UATAddIncome" />
         <item itemvalue="JUnit.ExpenseIncomeAccountTest" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -476,6 +464,14 @@
       <option name="presentableId" value="Default" />
       <updated>1535698330120</updated>
     </task>
+    <task id="LOCAL-00001" summary="repeat and repeat push">
+      <created>1536241005447</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536241005447</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -506,8 +502,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22214764" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3248322" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -516,15 +513,15 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49597314" weight="0.3286119" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.490604" weight="0.3286119" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49932885" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5033557" side_tool="true" visible="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info active="true" anchor="bottom" id="Messages" order="10" sideWeight="0.4966443" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50939596" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49932885" weight="0.3286119" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.490604" weight="0.3286119" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -545,13 +542,6 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lab04-expense.iml" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Record.java" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -560,72 +550,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/expenseIncomeAccount.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="142" selection-start-line="12" selection-start-column="142" selection-end-line="12" selection-end-column="142" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="28" column="53" selection-start-line="28" selection-start-column="53" selection-end-line="28" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/NotEnoughMoney.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="55" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#605#606#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/features/addIncome.feature">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="57" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ControllerTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/NotEnoughMoney.java" />
+    <entry file="file://$PROJECT_DIR$/.gitignore" />
     <entry file="file://$PROJECT_DIR$/src/test/java/UATAddIncome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -636,44 +570,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" lean-forward="true" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/features/addExpense.feature">
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        <state relative-caret-position="102">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/UATAddExpense.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/features/addExpense.feature">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="68">
+          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/features/addIncome.feature">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="34" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="31" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1360">
+          <caret line="90" column="88" selection-start-line="90" selection-start-column="88" selection-end-line="90" selection-end-column="88" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ExpenseIncomeAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1343">
+          <caret line="79" column="29" selection-start-line="79" selection-start-column="29" selection-end-line="79" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/StepOfAccounting.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="323">
+          <caret line="19" column="69" selection-start-line="19" selection-start-column="69" selection-end-line="19" selection-end-column="69" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ExpenseIncomeAccountTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="34" selection-start-line="1" selection-start-column="34" selection-end-line="1" selection-end-column="34" />
         </state>
       </provider>
     </entry>
