@@ -3,8 +3,8 @@ Feature: add expense
     I want to accounting my expense
 
 Background:
-    Given a user with 2000 balance exists
+    Given a user with balance depend on transactions in expense-income.xlsx file
 
 Scenario: accounting expense
     When I accounting expense for eating lunch with 500 bath
-    Then my account balance is 1500
+    Then my account balance is previous balance - 500
