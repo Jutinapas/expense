@@ -1,3 +1,3 @@
 # Expense and Income Accounting
 
-Github สำหรับงานใน Lab ของวิชา 01418471 Introduction to Software Engineering
+Github สำหรับโปรแกรมรายรับรายจ่ายใน Lab ของวิชา 01418471 Introduction to Software Engineering
