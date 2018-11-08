@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class StepOfAccounting {
 
     private ExpenseIncomeAccount account;
-    private int previousBalance;
+    private double previousBalance;
     private int previousNumberOfTransaction;
     private Transaction previousTransactionBeforeEdited;
     private Transaction editedTransaction;

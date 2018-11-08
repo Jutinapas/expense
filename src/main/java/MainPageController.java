@@ -1,3 +1,4 @@
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,11 +24,17 @@ public class MainPageController {
     @FXML
     private Label balanceLabel;
     @FXML
+    private Label totalExpenseLabel;
+    @FXML
+    private Label totalIncomeLabel;
+    @FXML
     private TableView<Record> tableView;
     @FXML
     private TableColumn<Record, String> dateColumn, typeColumn, descColumn, amountColumn;
     @FXML
-    private TextField descField, amountField;
+    private TextField descField;
+    @FXML
+    private Spinner<Double> amountField;
 
     public static class Record {
 
@@ -74,11 +81,20 @@ public class MainPageController {
                 onClickedRecord();
             }
         });
+        SpinnerValueFactory factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, Double.MAX_VALUE);
+        amountField.setValueFactory(factory);
+        amountField.setEditable(true);
+        amountField.getValueFactory().setValue(0.00);
+        TextFormatter formatter = new TextFormatter(factory.getConverter(), factory.getValue());
+        amountField.getEditor().setTextFormatter(formatter);
+        factory.valueProperty().bindBidirectional(formatter.valueProperty());
     }
 
     @FXML
     private void setBalanceLabel() {
         balanceLabel.setText("Current Balance : " + Main.account.getBalance());
+        totalIncomeLabel.setText("Total Income  : " + Main.account.getTotalIncome());
+        totalExpenseLabel.setText("Total Expense : " + Main.account.getTotalExpense());
     }
 
     @FXML
@@ -117,8 +133,9 @@ public class MainPageController {
 
     @FXML
     public void handleIncomeButton() throws Exception {
-        if (!descField.getText().trim().equals("") && !amountField.getText().trim().equals("")) {
-            Main.account.addIncome(descField.getText(), Integer.parseInt(amountField.getText()));
+        if (!descField.getText().trim().equals("") && amountField.getValue() != null) {
+            System.out.println(amountField.getValue());
+            Main.account.addIncome(descField.getText(), amountField.getValue());
             updateTable(Main.account.getTransactions().get(Main.account.getTransactionsSize() - 1));
             clearTextField();
         }
@@ -126,8 +143,8 @@ public class MainPageController {
 
     @FXML
     public void handleExpenseButton() throws Exception {
-        if (!descField.getText().trim().equals("") && !amountField.getText().trim().equals("")) {
-            Main.account.addExpense(descField.getText(), Integer.parseInt(amountField.getText()));
+        if (!descField.getText().trim().equals("") && amountField.getValue() != null ) {
+            Main.account.addExpense(descField.getText(), amountField.getValue());
             updateTable(Main.account.getTransactions().get(Main.account.getTransactionsSize() - 1));
             clearTextField();
         }
@@ -144,7 +161,8 @@ public class MainPageController {
 
     @FXML
     private void clearTextField() {
-        descField.setText(""); amountField.setText("");
+        descField.setText("");
+        amountField.getValueFactory().setValue(0.00);
     }
 
 }

@@ -19,7 +19,7 @@ class ExpenseIncomeAccountTest {
 
     @Test
     void testAddIncome() throws Exception {
-        int balance = account.getBalance();
+        double balance = account.getBalance();
         int size = account.getTransactionsSize();
         account.addIncome("testAddIncome", 250);
         assertEquals(balance + 250, account.getBalance());
@@ -28,7 +28,7 @@ class ExpenseIncomeAccountTest {
 
     @Test
     void testAddExpense() throws Exception {
-        int balance = account.getBalance();
+        double balance = account.getBalance();
         int size = account.getTransactionsSize();
         account.addExpense("testAddExpense", 250);
         assertEquals(balance - 250, account.getBalance());

@@ -8,9 +8,9 @@ public class Transaction {
     private LocalDate date;
     private Type type;
     private String description;
-    private int amount;
+    private double amount;
 
-    public Transaction(int id, LocalDate date, Type type, String description, int amount) {
+    public Transaction(int id, LocalDate date, Type type, String description, double amount) {
         this.id = id; this.date = date; this.type = type; this.description = description; this.amount = amount;
     }
 
@@ -22,7 +22,7 @@ public class Transaction {
         return description;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 

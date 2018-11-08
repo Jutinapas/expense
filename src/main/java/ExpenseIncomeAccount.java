@@ -10,10 +10,12 @@ import java.util.Date;
 public class ExpenseIncomeAccount {
 
     private ArrayList<Transaction> transactions;
-    private int balance;
+    private double totalExpense;
+    private double totalIncome;
 
     public ExpenseIncomeAccount() throws Exception {
-        this.balance = 0;
+        this.totalExpense = 0;
+        this.totalIncome = 0;
         this.transactions = new ArrayList<>();
         readFile();
     }
@@ -31,8 +33,10 @@ public class ExpenseIncomeAccount {
             String desc = row.getCell(3).toString();
             int amount = (int) row.getCell(4).getNumericCellValue();
             this.transactions.add(new Transaction(id, date, type, desc, amount));
-            if (type == Transaction.Type.INCOME) this.balance += amount;
-            else if (type == Transaction.Type.EXPENSE) this.balance -= amount;
+            if (type == Transaction.Type.INCOME)
+                this.totalIncome += amount;
+            else if (type == Transaction.Type.EXPENSE)
+                this.totalExpense += totalExpense;
         }
 
         input.close();
@@ -56,19 +60,18 @@ public class ExpenseIncomeAccount {
     }
 
 
-    public void addExpense(String desc, int amount) throws Exception {
+    public void addExpense(String desc, double amount) throws Exception {
         Transaction transaction = new Transaction(transactions.size() + 1, LocalDateTime.now().toLocalDate(), Transaction.Type.EXPENSE, desc, amount);
 
-        this.balance -= transaction.getAmount();
+        this.totalExpense += transaction.getAmount();
         transactions.add(transaction);
 
         writeFile(transaction);
     }
 
-    public void addIncome(String desc, int amount) throws Exception {
+    public void addIncome(String desc, double amount) throws Exception {
         Transaction transaction = new Transaction(transactions.size() + 1, LocalDateTime.now().toLocalDate(), Transaction.Type.INCOME, desc, amount);
 
-        this.balance += transaction.getAmount();
         transactions.add(transaction);
 
         writeFile(transaction);
@@ -77,11 +80,11 @@ public class ExpenseIncomeAccount {
     public void editTransaction(Transaction transaction) throws Exception {
         Transaction old = this.transactions.get(transaction.getId() - 1);
 
-        if (old.getType() == Transaction.Type.INCOME) balance -= old.getAmount();
-        else if (old.getType() == Transaction.Type.EXPENSE) balance += old.getAmount();
+        if (old.getType() == Transaction.Type.INCOME) this.totalIncome -= old.getAmount();
+        else if (old.getType() == Transaction.Type.EXPENSE) this.totalExpense -= old.getAmount();
         this.transactions.set(transaction.getId() - 1, transaction);
-        if (transaction.getType() == Transaction.Type.INCOME) this.balance += transaction.getAmount();
-        else if (transaction.getType() == Transaction.Type.EXPENSE) this.balance -= transaction.getAmount();
+        if (transaction.getType() == Transaction.Type.INCOME) this.totalIncome += transaction.getAmount();
+        else if (transaction.getType() == Transaction.Type.EXPENSE) this.totalExpense += transaction.getAmount();
 
         FileInputStream input = new FileInputStream("./expense-income.xlsx");
         Workbook workbook = WorkbookFactory.create(input);
@@ -97,8 +100,16 @@ public class ExpenseIncomeAccount {
         input.close();
     }
 
-    public int getBalance() {
-        return balance;
+    public double getBalance() {
+        return totalIncome - totalExpense;
+    }
+
+    public double getTotalIncome() {
+        return totalIncome;
+    }
+
+    public double getTotalExpense() {
+        return totalExpense;
     }
 
     public ArrayList<Transaction> getTransactions() {

@@ -14,7 +14,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("mainPage.fxml"));
         primaryStage.setResizable(false);
         primaryStage.setTitle("Expense-Income Account");
-        primaryStage.setScene(new Scene(root, 1000, 700));
+        primaryStage.setScene(new Scene(root, 1000, 780));
         primaryStage.show();
     }
 

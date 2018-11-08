@@ -1,9 +1,6 @@
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -18,7 +15,7 @@ public class EditPageController {
     @FXML
     private TextArea descField;
     @FXML
-    private TextField amountField;
+    private Spinner<Double> amountField;
     @FXML
     private Button editButton;
 
@@ -32,15 +29,21 @@ public class EditPageController {
             public void run() {
                 dateField.setValue(transaction.getDate());
                 descField.setText(transaction.getDescription());
-                amountField.setText(transaction.getAmount() + "");
+                SpinnerValueFactory factory = new SpinnerValueFactory.DoubleSpinnerValueFactory(0, Double.MAX_VALUE);
+                amountField.setValueFactory(factory);
+                amountField.setEditable(true);
+                amountField.getValueFactory().setValue(transaction.getAmount());
+                TextFormatter formatter = new TextFormatter(factory.getConverter(), factory.getValue());
+                amountField.getEditor().setTextFormatter(formatter);
+                factory.valueProperty().bindBidirectional(formatter.valueProperty());
             }
         });
     }
 
     @FXML
     public void handleEditButton() throws Exception {
-        if (!dateField.getValue().toString().trim().equals("") && !descField.getText().trim().equals("") && !amountField.getText().trim().equals("")) {
-            Main.account.editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), Integer.parseInt(amountField.getText())));
+        if (!dateField.getValue().toString().trim().equals("") && !descField.getText().trim().equals("") && amountField != null) {
+            Main.account.editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), amountField.getValueFactory().getValue()));
             Stage stage = (Stage) editPagePane.getScene().getWindow();
             stage.close();
         }
