@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Transaction {
 
@@ -32,6 +33,11 @@ public class Transaction {
 
     public LocalDate getDate() {
         return date;
+    }
+
+    public String getDateToString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
+        return date.format(formatter);
     }
 
 }

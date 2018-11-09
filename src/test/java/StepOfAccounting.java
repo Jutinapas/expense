@@ -17,11 +17,11 @@ public class StepOfAccounting {
     private Transaction editedTransaction;
 
     @Given("^a user with balance depend on transactions in expense-income\\.xlsx file$")
-    public void account_balance_depend_on_xlsx_file() throws Exception { account = new ExpenseIncomeAccount(); }
+    public void account_balance_depend_on_xlsx_file() throws Exception { account = ExpenseIncomeAccount.getInstance(); }
 
     @Given("^a user with balance depend on transactions in expense-income\\.xlsx file having (.*) transaction id (\\d+), description (.*) and amount (\\d+) and (.*) transaction id (\\d+), description (.*) and amount (\\d+)")
     public void account_balance_depend_on_xlsx_file_and_having_transaction(String type1, int id1, String desc1, int amount1, String type2, int id2, String desc2, int amount2) throws Exception {
-        account = new ExpenseIncomeAccount();
+        account = ExpenseIncomeAccount.getInstance();
         if (type1.equals("income"))
             account.getTransactions().add(new Transaction(id1, LocalDateTime.now().toLocalDate(), Transaction.Type.INCOME, desc1, amount1));
         else if (type1.equals("expense"))

@@ -12,7 +12,7 @@ class ExpenseIncomeAccountTest {
 
     @BeforeEach
     void init() throws Exception {
-        account = new ExpenseIncomeAccount();
+        account = ExpenseIncomeAccount.getInstance();
         account.addExpense("initExpense", 500);
         account.addIncome("intiIncome", 250);
     }

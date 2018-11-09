@@ -43,7 +43,7 @@ public class EditPageController {
     @FXML
     public void handleEditButton() throws Exception {
         if (!dateField.getValue().toString().trim().equals("") && !descField.getText().trim().equals("") && amountField != null) {
-            Main.account.editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), amountField.getValueFactory().getValue()));
+            ExpenseIncomeAccount.getInstance().editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), amountField.getValueFactory().getValue()));
             Stage stage = (Stage) editPagePane.getScene().getWindow();
             stage.close();
         }

@@ -1,103 +1,73 @@
-import org.apache.poi.ss.usermodel.*;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.time.*;
 import java.util.ArrayList;
-import java.util.Date;
-
 
 public class ExpenseIncomeAccount {
 
-    private ArrayList<Transaction> transactions;
-    private double totalExpense;
-    private double totalIncome;
+    private static ExpenseIncomeAccount instance;
 
-    public ExpenseIncomeAccount() throws Exception {
+    private ArrayList<Transaction> transactions;
+    private double totalIncome;
+    private double totalExpense;
+
+    private ExpenseIncomeAccount() throws Exception {
         this.totalExpense = 0;
         this.totalIncome = 0;
         this.transactions = new ArrayList<>();
-        readFile();
+        readTransactionFromFile();
     }
 
-    private void readFile() throws Exception {
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
-
-        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-            Row row = sheet.getRow(i);
-            int id = (int) row.getCell(0).getNumericCellValue();
-            LocalDate date = row.getCell(1).getDateCellValue().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            Transaction.Type type = (row.getCell(2).toString().equals("EXPENSE")) ? Transaction.Type.EXPENSE: Transaction.Type.INCOME;
-            String desc = row.getCell(3).toString();
-            int amount = (int) row.getCell(4).getNumericCellValue();
-            this.transactions.add(new Transaction(id, date, type, desc, amount));
-            if (type == Transaction.Type.INCOME)
-                this.totalIncome += amount;
-            else if (type == Transaction.Type.EXPENSE)
-                this.totalExpense += totalExpense;
-        }
-
-        input.close();
+    private void readTransactionFromFile() throws Exception {
+        Response response = ApachePoiConnection.getInstance().readTransactionFromFile();
+        transactions = response.getTransactions();
+        totalIncome = response.getTotalIncome();
+        totalExpense = response.getTotalExpense();
     }
 
-    public void writeFile(Transaction transaction) throws Exception {
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
-        Row row = sheet.createRow(transaction.getId());
-        row.createCell(0).setCellValue(transaction.getId());
-        row.createCell(1).setCellValue(Date.from(transaction.getDate().atStartOfDay().toInstant(OffsetDateTime.now().getOffset())));
-        row.createCell(2).setCellValue(transaction.getType().toString());
-        row.createCell(3).setCellValue(transaction.getDescription());
-        row.createCell(4).setCellValue(transaction.getAmount());
-        FileOutputStream out = new FileOutputStream("./expense-income.xlsx");
-        workbook.write(out);
-        out.flush();
-        out.close();
-        input.close();
+    public void writeTransactionToFile(Transaction transaction) throws Exception {
+        ApachePoiConnection.getInstance().writeTransactionToFile(transaction);
     }
-
 
     public void addExpense(String desc, double amount) throws Exception {
-        Transaction transaction = new Transaction(transactions.size() + 1, LocalDateTime.now().toLocalDate(), Transaction.Type.EXPENSE, desc, amount);
-
-        this.totalExpense += transaction.getAmount();
+        Transaction transaction = new Transaction(transactions.size() + 1, LocalDate.now(), Transaction.Type.EXPENSE, desc, amount);
+        totalExpense += transaction.getAmount();
         transactions.add(transaction);
-
-        writeFile(transaction);
+        writeTransactionToFile(transaction);
     }
 
     public void addIncome(String desc, double amount) throws Exception {
-        Transaction transaction = new Transaction(transactions.size() + 1, LocalDateTime.now().toLocalDate(), Transaction.Type.INCOME, desc, amount);
-
+        Transaction transaction = new Transaction(transactions.size() + 1, LocalDate.now(), Transaction.Type.INCOME, desc, amount);
+        totalIncome += transaction.getAmount();
         transactions.add(transaction);
-
-        writeFile(transaction);
+        writeTransactionToFile(transaction);
     }
 
     public void editTransaction(Transaction transaction) throws Exception {
-        Transaction old = this.transactions.get(transaction.getId() - 1);
+        Transaction old = transactions.get(transaction.getId() - 1);
 
-        if (old.getType() == Transaction.Type.INCOME) this.totalIncome -= old.getAmount();
-        else if (old.getType() == Transaction.Type.EXPENSE) this.totalExpense -= old.getAmount();
-        this.transactions.set(transaction.getId() - 1, transaction);
-        if (transaction.getType() == Transaction.Type.INCOME) this.totalIncome += transaction.getAmount();
-        else if (transaction.getType() == Transaction.Type.EXPENSE) this.totalExpense += transaction.getAmount();
+        if (old.getType() == Transaction.Type.INCOME)
+            totalIncome -= old.getAmount();
+        else if (old.getType() == Transaction.Type.EXPENSE)
+            totalExpense -= old.getAmount();
 
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
-        Row row = sheet.getRow(transaction.getId());
-        row.getCell(1).setCellValue(Date.from(transaction.getDate().atStartOfDay().toInstant(OffsetDateTime.now().getOffset())));
-        row.createCell(3).setCellValue(transaction.getDescription());
-        row.createCell(4).setCellValue(transaction.getAmount());
-        FileOutputStream out = new FileOutputStream("./expense-income.xlsx");
-        workbook.write(out);
-        out.flush();
-        out.close();
-        input.close();
+        transactions.set(transaction.getId() - 1, transaction);
+
+        if (transaction.getType() == Transaction.Type.INCOME)
+            this.totalIncome += transaction.getAmount();
+        else if (transaction.getType() == Transaction.Type.EXPENSE)
+            this.totalExpense += transaction.getAmount();
+
+        ApachePoiConnection.getInstance().editTransactionToFile(transaction);
+    }
+
+    public static ExpenseIncomeAccount getInstance() {
+        if (instance == null) {
+            try {
+                instance = new ExpenseIncomeAccount();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return instance;
     }
 
     public double getBalance() {

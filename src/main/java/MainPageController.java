@@ -1,4 +1,3 @@
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -17,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 
 public class MainPageController {
 
-    private static ObservableList<Record> records;
+    private ObservableList<Record> records;
 
     @FXML
     private Pane mainPagePane;
@@ -65,9 +64,9 @@ public class MainPageController {
 
     }
 
-    public void initialize() throws Exception {
+    public void initialize() {
         records = FXCollections.observableArrayList();
-        for (Transaction transaction: Main.account.getTransactions()) {
+        for (Transaction transaction: ExpenseIncomeAccount.getInstance().getTransactions()) {
             records.add(new Record(transaction));
         }
         dateColumn.setCellValueFactory(new PropertyValueFactory<Record, String>("date"));
@@ -92,15 +91,15 @@ public class MainPageController {
 
     @FXML
     private void setBalanceLabel() {
-        balanceLabel.setText("Current Balance : " + Main.account.getBalance());
-        totalIncomeLabel.setText("Total Income  : " + Main.account.getTotalIncome());
-        totalExpenseLabel.setText("Total Expense : " + Main.account.getTotalExpense());
+        balanceLabel.setText("Current Balance : " + ExpenseIncomeAccount.getInstance().getBalance());
+        totalIncomeLabel.setText("Total Income  : " + ExpenseIncomeAccount.getInstance().getTotalIncome());
+        totalExpenseLabel.setText("Total Expense : " + ExpenseIncomeAccount.getInstance().getTotalExpense());
     }
 
     @FXML
     private void updateTable(Transaction transaction) {
         records = FXCollections.observableArrayList();
-        for (Transaction temp: Main.account.getTransactions()) {
+        for (Transaction temp: ExpenseIncomeAccount.getInstance().getTransactions()) {
             records.add(new Record(temp));
         }
         tableView.setItems(records);
@@ -110,7 +109,7 @@ public class MainPageController {
     private void onClickedRecord() {
         ObservableList<Record>  allRecords = tableView.getItems(), selectedRecord = tableView.getSelectionModel().getSelectedItems();
         if (selectedRecord.size() > 0)
-            popupTransaction(Main.account.getTransactions().get(allRecords.indexOf(selectedRecord.get(0))));
+            popupTransaction(ExpenseIncomeAccount.getInstance().getTransactions().get(allRecords.indexOf(selectedRecord.get(0))));
     }
 
     private void popupTransaction(Transaction transaction) {
@@ -134,9 +133,8 @@ public class MainPageController {
     @FXML
     public void handleIncomeButton() throws Exception {
         if (!descField.getText().trim().equals("") && amountField.getValue() != null) {
-            System.out.println(amountField.getValue());
-            Main.account.addIncome(descField.getText(), amountField.getValue());
-            updateTable(Main.account.getTransactions().get(Main.account.getTransactionsSize() - 1));
+            ExpenseIncomeAccount.getInstance().addIncome(descField.getText(), amountField.getValue());
+            updateTable(ExpenseIncomeAccount.getInstance().getTransactions().get(ExpenseIncomeAccount.getInstance().getTransactionsSize() - 1));
             clearTextField();
         }
     }
@@ -144,15 +142,15 @@ public class MainPageController {
     @FXML
     public void handleExpenseButton() throws Exception {
         if (!descField.getText().trim().equals("") && amountField.getValue() != null ) {
-            Main.account.addExpense(descField.getText(), amountField.getValue());
-            updateTable(Main.account.getTransactions().get(Main.account.getTransactionsSize() - 1));
+            ExpenseIncomeAccount.getInstance().addExpense(descField.getText(), amountField.getValue());
+            updateTable(ExpenseIncomeAccount.getInstance().getTransactions().get(ExpenseIncomeAccount.getInstance().getTransactionsSize() - 1));
             clearTextField();
         }
     }
 
     public void handleRefreshButton() {
         records = FXCollections.observableArrayList();
-        for (Transaction transaction: Main.account.getTransactions()) {
+        for (Transaction transaction: ExpenseIncomeAccount.getInstance().getTransactions()) {
             records.add(new Record(transaction));
         }
         tableView.setItems(records);
