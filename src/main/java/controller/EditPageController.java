@@ -1,8 +1,12 @@
+package controller;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.ExpenseIncomeAccount;
+import model.Transaction;
 
 public class EditPageController {
 

@@ -1,3 +1,7 @@
+package connector;
+
+import model.Response;
+import model.Transaction;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -5,10 +9,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import java.io.*;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
-import java.time.ZoneId;
 import java.util.ArrayList;
-import java.util.Date;
 
 public class ApachePoiConnection {
 
@@ -28,7 +29,7 @@ public class ApachePoiConnection {
             Row row = sheet.getRow(i);
 
             int id = (int) row.getCell(0).getNumericCellValue();
-            LocalDate date = row.getCell(1).getDateCellValue().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate date = LocalDate.parse(row.getCell(1).getDateCellValue().toString());
             Transaction.Type type = null;
             if (row.getCell(2).toString().equals("INCOME"))
                 type = Transaction.Type.INCOME;
@@ -57,7 +58,7 @@ public class ApachePoiConnection {
 
         Row row = sheet.createRow(transaction.getId());
         row.createCell(0).setCellValue(transaction.getId());
-        row.createCell(1).setCellValue(Date.from(transaction.getDate().atStartOfDay().toInstant(OffsetDateTime.now().getOffset())));
+        row.createCell(1).setCellValue(transaction.getDate().toString());
         row.createCell(2).setCellValue(transaction.getType().toString());
         row.createCell(3).setCellValue(transaction.getDescription());
         row.createCell(4).setCellValue(transaction.getAmount());
@@ -76,7 +77,7 @@ public class ApachePoiConnection {
         Sheet sheet = workbook.getSheet("Sheet1");
 
         Row row = sheet.getRow(transaction.getId());
-        row.getCell(1).setCellValue(Date.from(transaction.getDate().atStartOfDay().toInstant(OffsetDateTime.now().getOffset())));
+        row.getCell(1).setCellValue(transaction.getDate().toString());
         row.createCell(3).setCellValue(transaction.getDescription());
         row.createCell(4).setCellValue(transaction.getAmount());
 

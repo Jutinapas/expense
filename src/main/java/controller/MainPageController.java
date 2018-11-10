@@ -1,3 +1,5 @@
+package controller;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -10,9 +12,10 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import model.ExpenseIncomeAccount;
+import model.Transaction;
 
 import java.io.IOException;
-import java.time.format.DateTimeFormatter;
 
 public class MainPageController {
 
@@ -43,7 +46,7 @@ public class MainPageController {
             this.description = transaction.getDescription();
             this.amount = transaction.getAmount() + "";
             this.type = transaction.getType().toString();
-            this.date = transaction.getDate().format(DateTimeFormatter.ofPattern("EEE, d MMM yyyy"));
+            this.date = transaction.getDateToString();
         }
 
         public String getDescription() {
@@ -148,6 +151,7 @@ public class MainPageController {
         }
     }
 
+    @FXML
     public void handleRefreshButton() {
         records = FXCollections.observableArrayList();
         for (Transaction transaction: ExpenseIncomeAccount.getInstance().getTransactions()) {

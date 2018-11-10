@@ -1,9 +1,11 @@
+package model;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class Transaction {
 
-    enum Type { EXPENSE, INCOME };
+    public enum Type { EXPENSE, INCOME };
 
     private int id;
     private LocalDate date;
@@ -36,8 +38,7 @@ public class Transaction {
     }
 
     public String getDateToString() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMM-yyyy");
-        return date.format(formatter);
+        return date.format(DateTimeFormatter.ofPattern("dd-MMM-yyyy"));
     }
 
 }

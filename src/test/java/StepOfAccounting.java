@@ -1,8 +1,8 @@
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import gherkin.lexer.Tr;
+import model.ExpenseIncomeAccount;
+import model.Transaction;
 
 import java.time.LocalDateTime;
 
