@@ -35,7 +35,7 @@ public class Account {
     }
 
     private void writeTransaction(Transaction transaction) {
-        connector.writeTranaction(transaction);
+        connector.writeTransaction(transaction);
     }
 
     public void editTransaction(Transaction transaction) {

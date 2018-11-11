@@ -55,7 +55,7 @@ public class ApachePoiConnection implements Connector {
     }
 
     @Override
-    public void writeTranaction(Transaction transaction) {
+    public void writeTransaction(Transaction transaction) {
         try {
             FileInputStream input = new FileInputStream("./src/main/resources/account.xlsx");
             Workbook workbook = WorkbookFactory.create(input);

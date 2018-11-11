@@ -3,7 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import model.Account;
 
 public class Main extends Application {
 
@@ -15,8 +14,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1000, 780));
         primaryStage.show();
     }
-
-    public static Account instance;
 
     public static void main(String[] args) {
         launch(args);

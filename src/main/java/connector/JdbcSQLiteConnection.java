@@ -58,7 +58,7 @@ public class JdbcSQLiteConnection implements Connector {
     }
 
     @Override
-    public void writeTranaction(Transaction transaction) {
+    public void writeTransaction(Transaction transaction) {
         Connection connection = connect();
         try {
             if (connection != null) {
