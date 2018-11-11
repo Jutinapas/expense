@@ -1,5 +1,6 @@
-import model.ExpenseIncomeAccount;
+import model.Account;
 import model.Transaction;
+import model.Type;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,13 +9,13 @@ import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ExpenseIncomeAccountTest {
+class AccountTest {
 
-    private ExpenseIncomeAccount account;
+    private Account account;
 
     @BeforeEach
     void init() throws Exception {
-        account = ExpenseIncomeAccount.getInstance();
+        account = Account.getInstance();
         account.addExpense("initExpense", 500);
         account.addIncome("intiIncome", 250);
     }
@@ -41,13 +42,13 @@ class ExpenseIncomeAccountTest {
     void testEditTransaction() throws Exception {
         LocalDate temp = LocalDateTime.now().toLocalDate();
         int size = account.getTransactionsSize();
-        account.editTransaction(new Transaction(2, temp, Transaction.Type.INCOME, "editedInitIncome", 500));
+        account.editTransaction(new Transaction(2, temp, Type.INCOME, "editedInitIncome", 500));
         Transaction editedTransaction = account.getTransactions().get(1);
         assertEquals(size, account.getTransactionsSize());
         assertEquals("editedInitIncome", editedTransaction.getDescription());
         assertEquals(500, editedTransaction.getAmount());
 
-        account.editTransaction(new Transaction(1, temp, Transaction.Type.EXPENSE, "editedInitExpense", 250));
+        account.editTransaction(new Transaction(1, temp, Type.EXPENSE, "editedInitExpense", 250));
         editedTransaction = account.getTransactions().get(0);
         assertEquals(size, account.getTransactionsSize());
         assertEquals("editedInitExpense", editedTransaction.getDescription());

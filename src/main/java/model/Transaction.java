@@ -5,8 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 public class Transaction {
 
-    public enum Type { EXPENSE, INCOME };
-
     private int id;
     private LocalDate date;
     private Type type;

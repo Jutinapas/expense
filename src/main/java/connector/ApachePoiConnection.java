@@ -1,7 +1,9 @@
 package connector;
 
+import model.Connector;
 import model.Response;
 import model.Transaction;
+import model.Type;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -11,88 +13,94 @@ import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class ApachePoiConnection {
+public class ApachePoiConnection implements Connector {
 
-    private static ApachePoiConnection instance;
-
-    private ApachePoiConnection() { }
-
-    public Response readTransactionFromFile() throws IOException {
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
-
+    @Override
+    public Response readAllTransaction() {
         double totalIncome = 0, totalExpense = 0;
         ArrayList<Transaction> transactions = new ArrayList<>();
+        try {
+            FileInputStream input = new FileInputStream("./src/main/resources/account.xlsx");
+            Workbook workbook = WorkbookFactory.create(input);
+            Sheet sheet = workbook.getSheet("Sheet1");
 
-        for (int i = 1; i <= sheet.getLastRowNum(); i++) {
-            Row row = sheet.getRow(i);
+            for (int i = 1; i <= sheet.getLastRowNum(); i++) {
+                Row row = sheet.getRow(i);
 
-            int id = (int) row.getCell(0).getNumericCellValue();
-            LocalDate date = LocalDate.parse(row.getCell(1).getDateCellValue().toString());
-            Transaction.Type type = null;
-            if (row.getCell(2).toString().equals("INCOME"))
-                type = Transaction.Type.INCOME;
-            else if (row.getCell(2).toString().equals("EXPENSE"))
-                type = Transaction.Type.EXPENSE;
-            String desc = row.getCell(3).toString();
-            int amount = (int) row.getCell(4).getNumericCellValue();
+                int id = (int) row.getCell(0).getNumericCellValue();
+                LocalDate date = LocalDate.parse(row.getCell(1).getDateCellValue().toString());
+                Type type = null;
+                if (row.getCell(2).toString().equals("INCOME"))
+                    type = Type.INCOME;
+                else if (row.getCell(2).toString().equals("EXPENSE"))
+                    type = Type.EXPENSE;
+                String desc = row.getCell(3).toString();
+                int amount = (int) row.getCell(4).getNumericCellValue();
 
-            transactions.add(new Transaction(id, date, type, desc, amount));
-            if (type == Transaction.Type.INCOME)
-                totalIncome += amount;
-            else if (type == Transaction.Type.EXPENSE)
-                totalExpense += amount;
+                transactions.add(new Transaction(id, date, type, desc, amount));
+                if (type == Type.INCOME)
+                    totalIncome += amount;
+                else if (type == Type.EXPENSE)
+                    totalExpense += amount;
+            }
+
+            workbook.close();
+            input.close();
         }
-
-        workbook.close();
-        input.close();
+        catch (IOException e) {
+            System.out.println(e);
+        }
 
         return new Response(transactions, totalIncome, totalExpense);
     }
 
-    public void writeTransactionToFile(Transaction transaction) throws IOException {
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
+    @Override
+    public void writeTranaction(Transaction transaction) {
+        try {
+            FileInputStream input = new FileInputStream("./src/main/resources/account.xlsx");
+            Workbook workbook = WorkbookFactory.create(input);
+            Sheet sheet = workbook.getSheet("Sheet1");
 
-        Row row = sheet.createRow(transaction.getId());
-        row.createCell(0).setCellValue(transaction.getId());
-        row.createCell(1).setCellValue(transaction.getDate().toString());
-        row.createCell(2).setCellValue(transaction.getType().toString());
-        row.createCell(3).setCellValue(transaction.getDescription());
-        row.createCell(4).setCellValue(transaction.getAmount());
+            Row row = sheet.createRow(transaction.getId());
+            row.createCell(0).setCellValue(transaction.getId());
+            row.createCell(1).setCellValue(transaction.getDate().toString());
+            row.createCell(2).setCellValue(transaction.getType().toString());
+            row.createCell(3).setCellValue(transaction.getDescription());
+            row.createCell(4).setCellValue(transaction.getAmount());
 
-        FileOutputStream out = new FileOutputStream("./expense-income.xlsx");
-        workbook.write(out);
-        out.flush();
-        out.close();
-        workbook.close();
-        input.close();
+            FileOutputStream out = new FileOutputStream("./src/main/resources/account.xlsx");
+            workbook.write(out);
+            out.flush();
+            out.close();
+            workbook.close();
+            input.close();
+        }
+        catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
-    public void editTransactionToFile(Transaction transaction) throws IOException {
-        FileInputStream input = new FileInputStream("./expense-income.xlsx");
-        Workbook workbook = WorkbookFactory.create(input);
-        Sheet sheet = workbook.getSheet("Sheet1");
+    @Override
+    public void editTransaction(Transaction transaction) {
+        try {
+            FileInputStream input = new FileInputStream("./src/main/resources/account.xlsx");
+            Workbook workbook = WorkbookFactory.create(input);
+            Sheet sheet = workbook.getSheet("Sheet1");
 
-        Row row = sheet.getRow(transaction.getId());
-        row.getCell(1).setCellValue(transaction.getDate().toString());
-        row.createCell(3).setCellValue(transaction.getDescription());
-        row.createCell(4).setCellValue(transaction.getAmount());
+            Row row = sheet.getRow(transaction.getId());
+            row.getCell(1).setCellValue(transaction.getDate().toString());
+            row.createCell(3).setCellValue(transaction.getDescription());
+            row.createCell(4).setCellValue(transaction.getAmount());
 
-        FileOutputStream out = new FileOutputStream("./expense-income.xlsx");
-        workbook.write(out);
-        out.flush();
-        out.close();
-        workbook.close();
-        input.close();
-    }
-
-    public static ApachePoiConnection getInstance() throws IOException {
-        if (instance == null)
-            instance = new ApachePoiConnection();
-        return instance;
+            FileOutputStream out = new FileOutputStream("./src/main/resources/account.xlsx");
+            workbook.write(out);
+            out.flush();
+            out.close();
+            workbook.close();
+            input.close();
+        } catch (IOException e) {
+            System.out.println(e);
+        }
     }
 
 }

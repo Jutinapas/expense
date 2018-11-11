@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import model.ExpenseIncomeAccount;
+import model.Account;
 import model.Transaction;
 
 public class EditPageController {
@@ -45,9 +45,9 @@ public class EditPageController {
     }
 
     @FXML
-    public void handleEditButton() throws Exception {
+    public void handleEditButton() {
         if (!dateField.getValue().toString().trim().equals("") && !descField.getText().trim().equals("") && amountField != null) {
-            ExpenseIncomeAccount.getInstance().editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), amountField.getValueFactory().getValue()));
+            Account.getInstance().editTransaction(new Transaction(transaction.getId(), dateField.getValue(), transaction.getType(), descField.getText(), amountField.getValueFactory().getValue()));
             Stage stage = (Stage) editPagePane.getScene().getWindow();
             stage.close();
         }

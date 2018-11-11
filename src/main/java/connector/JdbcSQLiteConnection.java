@@ -1,23 +1,18 @@
 package connector;
 
-import model.Response;
-import model.Transaction;
+import model.*;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class JdbcSQLiteConnection {
-
-    private static JdbcSQLiteConnection instance;
-
-    private JdbcSQLiteConnection() {}
+public class JdbcSQLiteConnection implements Connector {
 
     private static Connection connect() {
         Connection connection = null;
         try {
             Class.forName("org.sqlite.JDBC");
-            String dbURL = "jdbc:sqlite:account.db";
+            String dbURL = "jdbc:sqlite:./src/main/resources/account.db";
             connection = DriverManager.getConnection(dbURL);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -25,7 +20,8 @@ public class JdbcSQLiteConnection {
         return connection;
     }
 
-    public Response readTransactionFromFromDB() {
+    @Override
+    public Response readAllTransaction() {
         double totalIncome = 0, totalExpense = 0;
         ArrayList<Transaction> transactions = new ArrayList<>();
 
@@ -38,18 +34,18 @@ public class JdbcSQLiteConnection {
                 while (resultSet.next()) {
                     int id = resultSet.getInt(1);
                     LocalDate date = LocalDate.parse(resultSet.getString(2));
-                    Transaction.Type type = null;
+                    Type type = null;
                     if (resultSet.getInt(3) == 0)
-                        type = Transaction.Type.INCOME;
+                        type = Type.INCOME;
                     else if (resultSet.getInt(3) == 1)
-                        type = Transaction.Type.EXPENSE;
+                        type = Type.EXPENSE;
                     String desc = resultSet.getString(4);
                     Double amount = resultSet.getDouble(5);
                     transactions.add(new Transaction(id, date, type, desc, amount));
 
-                    if (type == Transaction.Type.INCOME)
+                    if (type == Type.INCOME)
                         totalIncome += amount;
-                    else if (type == Transaction.Type.EXPENSE)
+                    else if (type == Type.EXPENSE)
                         totalExpense += amount;
                 }
                 connection.close();
@@ -61,7 +57,8 @@ public class JdbcSQLiteConnection {
         return new Response(transactions, totalIncome, totalExpense);
     }
 
-    public void writeTransactionToDB(Transaction transaction) {
+    @Override
+    public void writeTranaction(Transaction transaction) {
         Connection connection = connect();
         try {
             if (connection != null) {
@@ -69,9 +66,9 @@ public class JdbcSQLiteConnection {
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setInt(1, transaction.getId());
                 statement.setString(2, transaction.getDate().toString());
-                if (transaction.getType() == Transaction.Type.INCOME)
+                if (transaction.getType() == Type.INCOME)
                     statement.setInt(3, 0);
-                else if (transaction.getType() == Transaction.Type.EXPENSE)
+                else if (transaction.getType() == Type.EXPENSE)
                     statement.setInt(3, 1);
                 statement.setString(4, transaction.getDescription());
                 statement.setDouble(5, transaction.getAmount());
@@ -83,7 +80,8 @@ public class JdbcSQLiteConnection {
         }
     }
 
-    public void editTransactionToDB(Transaction transaction) {
+    @Override
+    public void editTransaction(Transaction transaction) {
         Connection connection = connect();
         try {
             if (connection != null) {
@@ -101,12 +99,5 @@ public class JdbcSQLiteConnection {
             System.out.println(e);
         }
     }
-
-    public static JdbcSQLiteConnection getInstance() {
-        if (instance == null)
-            instance = new JdbcSQLiteConnection();
-        return instance;
-    }
-
 
 }
